@@ -1,70 +1,54 @@
------------------------------------
+## Asteruga
 
-_DISCLAIMER:_
+[PLAY IT HERE](https://gabrielssanches.itch.io/asteruga)
 
-Welcome to the **raylib gamejam template**!
-
-This template provides a base structure to start developing a small raylib game in plain C for any of the proposed **raylib gamejams**!
-
-Please, considering the following usual gamejam restrictions: 
-
- - Game must be made with raylib
- - Game must be compiled for web
- - _Specific gamejam restrictions if defined_
- 
-NOTE: Several GitHub Actions workflows have been preconfigured to automatically build your game for Windows, Linux and WebAssembly on each commit. Those workflows automatically sync with latest version of raylib available to build.
-
-The repo is also pre-configured with a default `LICENSE` (zlib/libpng) and a `README.md` (this one) to be properly filled by users. Feel free to change the LICENSE as required.
-
-All the sections defined by `$(Data to Fill)` are expected to be edited and filled properly. It's recommended to delete this disclaimer message after editing this `README.md` file.
-
-This template has been created to be used with raylib (www.raylib.com) and it's licensed under an unmodified zlib/libpng license.
-
-_Copyright (c) 2022-2023 Ramon Santamaria ([@raysan5](https://twitter.com/raysan5))_
-
------------------------------------
-
-## $(Game Title)
-
-![$(Game Title)](screenshots/screenshot000.png "$(Game Title)")
+![Asteruga](screenrec.gif)
 
 ### Description
 
-$(Your Game Description)
+Asteroid + Ikaruga combined
 
-### Features
+Destroid all asteroids in1 a level to clear it
 
- - $(Game Feature 01)
- - $(Game Feature 02)
- - $(Game Feature 03)
+Colored asteroids as resistent to bullets of different colors!
+Change your ships color to destroy them more quickly
+
+Meet goals to earn stars. Each level has a combo/time to beat.
+
 
 ### Controls
 
 Keyboard:
- - $(Game Control 01)
- - $(Game Control 02)
- - $(Game Control 03)
+ - [W] Throttle forward
+ - [S] Throttle backwards 
+ - [Q] Throttle left (strafe) 
+ - [E] Throttle right (strafe) 
+ - [A] Rotate CCW
+ - [D] Rotate CW
+ - [SPACE] Shoot/Select
+ - [ESCAPE] Pause
 
 ### Screenshots
 
-_TODO: Show your game to the world, animated GIFs recommended!._
+![Asteruga](screenshot.png)
 
-### Developers
 
- - $(Developer 01) - $(Role/Tasks Developed)
- - $(Developer 02) - $(Role/Tasks Developed)
- - $(Developer 03) - $(Role/Tasks Developed)
+### Credits
+
+ - Level 1 soundtrack - https://freesound.org/people/BloodPixelHero/sounds/636256/
+ - Level 2 soundtrack - https://freesound.org/people/BloodPixelHero/sounds/678909/
+ - Level 3 soundtrack - https://freesound.org/people/BloodPixelHero/sounds/609208/ 
+ - Boss soundtrack - https://freesound.org/people/BloodPixelHero/sounds/707651/
+ - Boss defeat - https://freesound.org/people/sonically_sound/sounds/624882/
+ - Power up - https://freesound.org/people/JavierZumer/sounds/257225/
+
 
 ### Links
 
- - YouTube Gameplay: $(YouTube Link)
- - itch.io Release: $(itch.io Game Page)
- - Steam Release: $(Steam Game Page)
+ - [gabrielssanches.itch.io/asteruga](https://gabrielssanches.itch.io/asteruga)
 
 ### License
 
 This game sources are licensed under an unmodified zlib/libpng license, which is an OSI-certified, BSD-like license that allows static linking with closed source software. Check [LICENSE](LICENSE) for further details.
 
-$(Additional Licenses)
-
-*Copyright (c) $(Year) $(User Name) ($(User Twitter/GitHub Name))*
+*Copyright (c) 2024 gabrielssanches*
