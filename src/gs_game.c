@@ -1,3 +1,6 @@
+// TODO: level editor
+// TODO: save user levels
+
 #include "asteruga.h"
 
 #define SCREEN_WIDTH()    720
@@ -1628,7 +1631,3 @@ struct game_state _gs_game = {
     .update = game_update,
     .draw = game_draw
 };
-
-// plan
-//
-// start with 1 live or death count
