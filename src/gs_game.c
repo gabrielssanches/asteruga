@@ -1,3 +1,7 @@
+// TODO: refactor
+// - colision check between objects
+// - 
+//
 // TODO: level editor
 // TODO: save user levels
 
