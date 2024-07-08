@@ -83,6 +83,7 @@ int main(int argc, char *argv[]) {
     gctx.state_current = &_gs_none;
     gctx.state_next = &_gs_load;
     gctx.states[STATE_LOAD] = &_gs_load;
+    gctx.states[STATE_TESTFIELD] = &gamestate_testfield;
     gctx.states[STATE_INTRO_RAYLIB] = &_gs_intro_raylib;
     gctx.states[STATE_MAIN_MENU] = &_gs_main_menu;
     gctx.states[STATE_GAME] = &_gs_game;

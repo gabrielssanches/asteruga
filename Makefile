@@ -411,6 +411,7 @@ PROJECT_SOURCE_FILES ?= \
 	src/gs_intro_raylib.c \
 	src/gs_main_menu.c \
 	src/gs_game.c \
+	src/testfield.c \
 	src/raylib_ext.c \
     src/main.c
 

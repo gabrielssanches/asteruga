@@ -28,6 +28,7 @@ typedef struct game_context game_context_t;
 
 enum state_name {
     STATE_LOAD,
+    STATE_TESTFIELD,
     STATE_INTRO_RAYLIB,
     STATE_MAIN_MENU,
     STATE_GAME,
@@ -88,7 +89,9 @@ extern struct game_state _gs_load;
 extern struct game_state _gs_intro_raylib;
 extern struct game_state _gs_main_menu;
 extern struct game_state _gs_game;
+extern struct game_state gamestate_testfield; 
 
+#include "ship.h"
 
 // raylib extension functions
 
