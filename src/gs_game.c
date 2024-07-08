@@ -279,7 +279,6 @@ static const struct level levels[4] = {
 };
 
 static struct game game;
-static RenderTexture screen_texture;
 
 #if defined(PLATFORM_WEB)
     #include <emscripten/emscripten.h>
@@ -879,7 +878,6 @@ static void game_enter(struct game_context *gctx) {
     game.space.right = SCREEN_WIDTH();
     game.space.top = 0;
     game.space.bot = SCREEN_HEIGHT();
-    screen_texture = LoadRenderTexture(SCREEN_WIDTH(), SCREEN_HEIGHT());
 }
 
 #if 0
@@ -1414,19 +1412,17 @@ static void color_pad_draw(struct color_pad *color_pad) {
 }
 
 static void game_draw(struct game_context *gctx) {
-    BeginTextureMode(screen_texture);
+    BeginDrawing();
 
-#if 0
+    ClearBackground(COLOR_BACKGROUND);
+
     Camera2D cam = { 0 };
     cam.target = Vector2Zero();
     cam.offset = Vector2Zero();
     cam.rotation = 0.0f;
-    cam.zoom = 1.0f;
+    cam.zoom = (float)GetScreenHeight()/(float)SCREEN_HEIGHT();
 
     BeginMode2D(cam);
-#endif
-
-    ClearBackground(COLOR_BACKGROUND);
 
     DrawRectangleLines(game.space.left, game.space.top, game.space.width, game.space.height, COLOR_NEUTRAL);
 
@@ -1470,9 +1466,6 @@ static void game_draw(struct game_context *gctx) {
         DrawText(TextFormat("LIVES %i", game.p1.lives), 10, 30, 30, BLACK);
         DrawText(TextFormat("COMBO %i", game.p1.ashit_combo), 10, 60, 30, BLACK);
 
-#if 0
-    EndMode2D();
-#endif
     }
     if (game.level_state == LEVEL_BOSS) {
         boss_draw(&game.boss);
@@ -1487,20 +1480,12 @@ static void game_draw(struct game_context *gctx) {
         DrawTextCentered("Quit", SCREEN_WIDTH()/2, SCREEN_HEIGHT()/2 +100, 30, BLACK);
         DrawTextCentered(">", SCREEN_WIDTH()/2 -100, SCREEN_HEIGHT()/2 +(50*game.paused_sel), 30, BLACK);
     }
-    EndTextureMode();
 
-    BeginDrawing();
+    EndMode2D();
 
-    ClearBackground(COLOR_BACKGROUND);
+    // draw outside of 2D mode so it does not scales 
 
-    Rectangle splitScreenRect = { 0.0f, 0.0f, (float)screen_texture.texture.width, (float)-screen_texture.texture.height };
-
-    Vector2 texture_offset = { (GetScreenWidth() - SCREEN_WIDTH())/2.0f, (GetScreenHeight() - SCREEN_HEIGHT())/2.0f };
-    DrawTextureRec(screen_texture.texture, splitScreenRect, texture_offset, WHITE);
-
-    DrawText(TextFormat("%ix%i@%i", GetScreenWidth(), GetScreenHeight(), GetFPS()), 30, 30, 30, GREEN);
-    //DrawText(TextFormat("%.3f", GetTimeUnpaused()), 30, 70, 30, GREEN);
-    //DrawText(TextFormat("%.3f", GetTimeUnpaused() -game.level_timestamp), 30, 110, 30, GREEN);
+    DrawText(TextFormat("%ix%i@%i zoom:%0.3f", GetScreenWidth(), GetScreenHeight(), GetFPS(), cam.zoom), 30, 30, 30, GREEN);
 
     if (GetScreenWidth() < SCREEN_WIDTH() || GetScreenHeight() < SCREEN_HEIGHT()) {
         const char *screen_fail_txt = "SCREEN TOO SMALL";

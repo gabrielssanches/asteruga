@@ -78,10 +78,10 @@ int main(int argc, char *argv[]) {
     SetConfigFlags(FLAG_WINDOW_UNDECORATED);
     InitWindow(1920, 1080, "asteruga");
 
-    DisableCursor();
+    //DisableCursor();
 
     gctx.state_current = &_gs_none;
-    gctx.state_next = &_gs_load;
+    gctx.state_next = &_gs_game;
     gctx.states[STATE_LOAD] = &_gs_load;
     gctx.states[STATE_TESTFIELD] = &gamestate_testfield;
     gctx.states[STATE_INTRO_RAYLIB] = &_gs_intro_raylib;
