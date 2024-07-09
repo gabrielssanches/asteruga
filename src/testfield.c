@@ -1,24 +1,17 @@
 #include "asteruga.h"
 
-static struct ship s1;
-static struct space space; 
+//static struct ship tf_s1;
+static struct space tf_space;
 
 static void testfield_enter(game_context_t *gctx) {
-    space_init(&space, space_rect);
+    Rectangle space_limits = { 0, 0, GetScreenWidth(), GetScreenHeight() };
+    space_init(&tf_space, space_limits);
 
-    ship_init(&s1, &space);
+    //ship_init(&tf_s1, &space);
 }
 
 static void testfield_update(game_context_t *gctx) {
-    if (on_key_press(KEY_R)) {
-        ship_reset(&s1);
-    }
-
-    ship_input_update(&s1);
 }
-
-struct bullet {
-
 
 static void testfield_draw(game_context_t *gctx) {
     BeginDrawing();
@@ -33,9 +26,9 @@ static void testfield_draw(game_context_t *gctx) {
 
     BeginMode2D(cam);
 
-    ship_draw(&s1);
+    //ship_draw(&s1);
 
-    bullet_draw(&s1.bullets);
+    //bullet_draw(&s1.bullets);
 
     EndMode2D();
 

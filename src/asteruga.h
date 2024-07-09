@@ -92,6 +92,7 @@ extern struct game_state _gs_game;
 extern struct game_state gamestate_testfield; 
 
 #include "ship.h"
+#include "ga_space.h"
 
 // raylib extension functions
 

@@ -407,6 +407,7 @@ endif
 # Define source code object files required
 #------------------------------------------------------------------------------------------------
 PROJECT_SOURCE_FILES ?= \
+	src/ga_space.c \
 	src/gs_load.c \
 	src/gs_intro_raylib.c \
 	src/gs_main_menu.c \

@@ -78,15 +78,6 @@ struct asteroid {
     enum ascolor ascolor;
 };
 
-struct space {
-    float top;
-    float bot;
-    float left;
-    float right;
-    float width;
-    float height;
-};
-
 struct ship {
     struct position2d cord;
     struct bullet bullets[200];
