@@ -1,5 +1,5 @@
-#ifndef SHIP_H
-#define SHIP_H
+#ifndef GA_ALL_H
+#define GA_ALL_H
 
 enum boss_state {
     BS_INIT,
@@ -78,23 +78,6 @@ struct asteroid {
     enum ascolor ascolor;
 };
 
-struct ship {
-    struct position2d cord;
-    struct bullet bullets[200];
-    double fire_rate;
-    double shoot_timestamp;
-    double spawn_timestamp;
-    enum ascolor ascolor;
-    double color_timestamp;
-    double ashit_timestamp;
-    double bonus_timestamp;
-    char *bonus_text;
-    int ashit_combo;
-    int ashit_combo_max;
-    int size;
-    int lives;
-};
-
 struct color_pad {
     float angle;
     struct position2d cord;
@@ -106,5 +89,4 @@ struct color_pad {
     Vector2 cord_max;
 };
 
-
-#endif // SHIP_H
+#endif // GA_ALL_H
