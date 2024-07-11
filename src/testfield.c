@@ -16,6 +16,7 @@ static void testfield_update(game_context_t *gctx) {
     _ship_update(&tf_s1);
 }
 
+#define RAYGUI_WINDOWBOX_STATUSBAR_HEIGHT 24
 static void testfield_draw(game_context_t *gctx) {
     BeginDrawing();
 
@@ -37,6 +38,24 @@ static void testfield_draw(game_context_t *gctx) {
 
     Rectangle screen_border = { 0, 0, GetScreenWidth(), GetScreenHeight() };
     DrawRectangleLinesEx(screen_border, 5.0f, RED);
+
+    { // GUI
+        float fontSize = GuiGetStyle(DEFAULT, TEXT_SIZE);
+        const float margin = 8;
+        Rectangle settingsRect = (Rectangle){ 0, 0, 100, 200 };
+        Rectangle contentRect = (Rectangle){ 0, 0, 0, 0 };
+        Vector2 scrollOffset = (Vector2){ 0, 0 };
+        GuiScrollPanel(settingsRect, "Settings", contentRect, &scrollOffset, NULL);
+
+        contentRect = (Rectangle){ settingsRect.x + margin, RAYGUI_WINDOWBOX_STATUSBAR_HEIGHT+margin, settingsRect.width - 2*margin - GuiGetStyle(LISTVIEW, SCROLLBAR_WIDTH), 0 };
+
+        contentRect.height += fontSize;
+        GuiLabel((Rectangle){ contentRect.x, contentRect.y + contentRect.height + scrollOffset.y, contentRect.width, fontSize }, "Position");
+
+        char x_str[16];
+        sprintf(x_str, "%0.3f", tf_s1.cord.pos.x);
+        GuiTextBox((Rectangle){ contentRect.x + 40, contentRect.y + contentRect.height + scrollOffset.y, contentRect.width/2-margin, 1.5f*fontSize }, x_str, 20, false);
+    }
 
     EndDrawing();
 }
